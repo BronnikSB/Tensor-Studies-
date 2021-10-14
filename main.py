@@ -48,18 +48,18 @@
 
 # Задача № 6
 
-print('Проверка номера телефона на наличие букв.')
-phone_number = input('Введите номер телефона:')
-phone_number_len = len(phone_number)
-
-
-def phone_number_examination(number):
-    for i in range(phone_number_len):
-        while number[i].isdigit() or number[i] == ' ' or number[i] == '-' or number[i] == '+':
-            break
-        else:
-            return print('Значение не верно!')
-    print('Ok')
-
-
-phone_number_examination(phone_number)
+# print('Проверка номера телефона на наличие букв.')
+# phone_number = input('Введите номер телефона:')
+# phone_number_len = len(phone_number)
+#
+#
+# def phone_number_examination(number):
+#     for i in range(phone_number_len):
+#         while number[i].isdigit() or number[i] == ' ' or number[i] == '-' or number[i] == '+':
+#             break
+#         else:
+#             return print('Значение не верно!')
+#     print('Ok')
+#
+#
+# phone_number_examination(phone_number)
