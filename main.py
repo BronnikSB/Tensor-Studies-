@@ -48,18 +48,49 @@
 
 # Задача № 6
 
-print('Проверка номера телефона на наличие букв.')
-phone_number = input('Введите номер телефона:')
-phone_number_len = len(phone_number)
+# print('Проверка номера телефона на наличие букв.')
+# phone_number = input('Введите номер телефона:')
+# phone_number_len = len(phone_number)
+#
+#
+# def phone_number_examination(number):
+#     for i in range(phone_number_len):
+#         while number[i].isdigit() or number[i] == ' ' or number[i] == '-' or number[i] == '+':
+#             break
+#         else:
+#             return print('Значение не верно!')
+#     print('Ok')
+#
+#
+# phone_number_examination(phone_number)
 
+# Задача № 7
 
-def phone_number_examination(number):
-    for i in range(phone_number_len):
-        while number[i].isdigit() or number[i] == ' ' or number[i] == '-' or number[i] == '+':
-            break
-        else:
-            return print('Значение не верно!')
-    print('Ok')
+# num = 0
+#
+# while num != 123:
+#     if num % 2 == 0:
+#         print(num)
+#     num += 1
 
+# num = 123
+#
+# for i in range(1, num):
+#     if i % 3 == 0:
+#         print(i)
 
-phone_number_examination(phone_number)
+# Задача № 8
+
+# number_str = 5
+# for i in range(1, number_str + 1):
+#     symbol = "* " * i
+#     print(i, symbol)
+
+# Задача № 9
+
+num_user = int(input("Введите целое число:"))
+num_user_new = num_user - 2
+while num_user_new > 1:
+    num_user *= num_user_new
+    num_user_new -= 2
+print(num_user)
