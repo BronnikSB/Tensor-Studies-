@@ -88,9 +88,62 @@
 
 # Задача № 9
 
-num_user = int(input("Введите целое число:"))
-num_user_new = num_user - 2
-while num_user_new > 1:
-    num_user *= num_user_new
-    num_user_new -= 2
-print(num_user)
+# num_user = int(input("Введите целое число:"))
+# num_user_new = num_user - 2
+# while num_user_new > 1:
+#     num_user *= num_user_new
+#     num_user_new -= 2
+# print(num_user)
+
+# Задача №10
+
+# num_use = int(input("Введите число от 1 до 100:"))
+# lst = []
+# for i in range(num_use):
+#     if i == 0:
+#         continue
+#     elif i % 5 == 0:
+#         lst.append(i)
+# print(lst)
+# # Задача № 11
+#
+# num_max = max(lst)
+# num_min = min(lst)
+# index_max = lst.index(num_max)
+# index_min = lst.index(num_min)
+# lst[index_min], lst[index_max] = lst[index_max], lst[index_min]
+# print(lst)
+#
+# # Задача №12
+
+# sum_lst = 0
+# multiply_lst = 1
+# for i in lst:
+#     sum_lst += i
+#     multiply_lst *= i
+# print(f"Сумма элементов списка равна:{sum_lst}\n"
+#       f"Произведение элементов списка равно:{multiply_lst}")
+
+# Задача № 13
+
+# lst = [
+#     {"Наименование": "Бекон",
+#      "Цена": 150},
+#     {"Наименование": "Яйца",
+#      "Цена": 86},
+#     {"Наименование": "Сливки",
+#      "Цена": 210},
+#     {"Наименование": "Паста",
+#      "Цена": 250},
+#     {"Наименование": "Базилик",
+#      "Цена": 70}
+# ]
+# for i in range(len(lst)):
+#     for k in range(0, len(lst) - i - 1):
+#         if lst[k]["Цена"] < lst[k + 1]["Цена"]:
+#             lst[k]["Цена"], lst[k+1]["Цена"] = lst[k+1]["Цена"], lst[k]["Цена"]
+# print(lst[0], "\n", lst[1], sep="")
+
+# Задача № 14
+
+
