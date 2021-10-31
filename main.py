@@ -146,4 +146,11 @@
 
 # Задача № 14
 
-
+# def cash(deposit, perсent_years, years):
+#     summa = deposit * (perсent_years / 100)
+#     summa *= years
+#     summa += deposit
+#     return summa
+#
+#
+# print(cash(1000000, 6.5, 5))
