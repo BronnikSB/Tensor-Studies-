@@ -154,3 +154,23 @@
 #
 #
 # print(cash(1000000, 6.5, 5))
+
+# Задача № 15
+
+# def palindrome(a):
+#     """Функция проверяет является ли число Палидромом,
+#     где a - принимаемое значение"""
+#     num_palindrome = str(a)
+#     if num_palindrome[0:] == num_palindrome[::-1]:
+#         return True
+#     return False
+#
+#
+# print(palindrome(121))
+
+for i in range(1, 1000):
+    for k in range(2, i):
+        if i % k == 0:
+            break
+        else:
+            print(i)
