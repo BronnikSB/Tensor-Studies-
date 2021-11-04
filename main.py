@@ -168,9 +168,32 @@
 #
 # print(palindrome(121))
 
-for i in range(1, 1000):
-    for k in range(2, i):
-        if i % k == 0:
-            break
-        else:
-            print(i)
+# Задача № 16
+
+# num_div = 0
+#
+# for i in range(2, 1000):
+#     for k in range(2, i):
+#         if i % k == 0:
+#             num_div += 1
+#     if num_div == 0:
+#         print(i)
+#     else:
+#         num_div = 0
+
+# Задача № 17
+#
+# num_use = 123123
+# print(type(num_use))
+#
+#
+# def happiness_exam(num):
+#     happiness_num = []
+#     for i in list(str(num)):
+#         happiness_num.append(int(i))
+#     if happiness_num[0:3] == happiness_num[3:6]:
+#         return print(f'{num} является счасливым числом')
+#     return print(f'{num} является не счастливым числом')
+#
+#
+# happiness_exam(num_use)
