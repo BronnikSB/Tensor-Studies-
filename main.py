@@ -202,19 +202,28 @@ txt = input("Введите текст:")
 count = [] # Список, который хранит в себе элемент, дубль которого мы ищем
 punctuation = ['.', ',', '!', '?', '(', ')', ':', ';', '"', '/', '-'] # Список знаков препинания, для удаления
 double_dict = {}
-value = []
-value_num = 0 # Количество повторяющихся элементов
+txt_new = []
+value_num = 1 # Количество повторяющихся элементов
 value_r = 1 # Начало диапазона для поиска дублей
 for i in punctuation:
     txt = txt.replace(i, "") # Удаляем знаки препинания
 txt = txt.lower().split() # Приводим текст к одному регистру, переводим в список
 for i in txt:
-    count.append(i) # добавляем элемент который будем проверять на дубл
-    for k in range(value_r, len(txt)):
-        if count[0] == txt[k]: # Поиск дубля
+    txt_new.append(i)
+for i in range(len(txt)-1):
+    if value_r == i:
+        value_r += 1
+    if txt[i] in double_dict:
+        continue
+    if len(double_dict) != 0 and txt[i] == txt[i - 1]:
+        continue
+    else:
+        count.append(txt[i]) # добавляем элемент который будем проверять на дубл
+    for k in range(value_r, len(txt_new)):
+        if txt_new[k] == count[0]: # Поиск дубля
             value_num += 1
             double_dict[count[0]] = value_num # Обновляем счетчик
-    value_r += 1 # Увеличиваем начало диапазона
-    # value_num = 0
+    value_r += 1
+    value_num = 1
     count = [] # Обнуляем, что бы в списке был только тот элемент, который проверяем
 print(double_dict)
