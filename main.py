@@ -198,32 +198,40 @@
 #
 # happiness_exam(num_use)
 
+## Задача № 18
+
 txt = input("Введите текст:")
-count = [] # Список, который хранит в себе элемент, дубль которого мы ищем
-punctuation = ['.', ',', '!', '?', '(', ')', ':', ';', '"', '/', '-'] # Список знаков препинания, для удаления
-double_dict = {}
-txt_new = []
-value_num = 1 # Количество повторяющихся элементов
-value_r = 1 # Начало диапазона для поиска дублей
-for i in punctuation:
-    txt = txt.replace(i, "") # Удаляем знаки препинания
-txt = txt.lower().split() # Приводим текст к одному регистру, переводим в список
-for i in txt:
-    txt_new.append(i)
-for i in range(len(txt)-1):
-    if value_r == i:
-        value_r += 1
-    if txt[i] in double_dict:
-        continue
-    if len(double_dict) != 0 and txt[i] == txt[i - 1]:
-        continue
-    else:
-        count.append(txt[i]) # добавляем элемент который будем проверять на дубл
-    for k in range(value_r, len(txt_new)):
-        if txt_new[k] == count[0]: # Поиск дубля
-            value_num += 1
-            double_dict[count[0]] = value_num # Обновляем счетчик
-    value_r += 1
-    value_num = 1
-    count = [] # Обнуляем, что бы в списке был только тот элемент, который проверяем
-print(double_dict)
+
+
+def double_count(txt_use):
+    """Функция ищет повторяющиеся элементы в списке
+    и выводить колиество повторений(В данной функции
+    не используется метод .count())"""
+    count = []  # Список, который хранит в себе элемент, дубль которого мы ищем
+    punctuation = ['.', ',', '!', '?', '(', ')', ':', ';', '"', '/', '-']  # Список знаков препинания, для удаления
+    double_dict = {}
+    value_num = 1 # Количество повторяющихся элементов
+    value_r = 1 # Начало диапазона для поиска дублей
+    for i in punctuation:
+        txt_use = txt_use.replace(i, "") # Удаляем знаки препинания
+    txt_use = txt_use.lower().split() # Приводим текст к одному регистру, переводим в список
+    # ----------- Увеличиваем диапазон если он равен i(если не увеличить, то в список будут попадать значения, которые
+    # не повторяются)
+    for i in range(len(txt_use)-1):
+        if value_r == i:
+            value_r += 1
+    # ------------------------------------------------
+        if txt_use[i] in double_dict: # Проверяем есть ли в списке уже данный ключ, если нет, то не берем его
+            continue
+        else:
+            count.append(txt_use[i]) # добавляем элемент который будем проверять на дубль
+        for k in range(value_r, len(txt_use)):
+            if txt_use[k] == count[0]: # Поиск дубля
+                value_num += 1
+                double_dict[count[0]] = value_num # Обновляем счетчик
+        value_num = 1
+        count = [] # Обнуляем, что бы в списке был только тот элемент, который проверяем
+    print(double_dict)
+
+
+double_count(txt)
