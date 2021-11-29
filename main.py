@@ -25,7 +25,9 @@
 #     root = i ** 3
 #     if root == 343:
 #         print(i)
-##
+
+## Задача № 4
+
 # print('Находим и удаляем нужный символ в строке\n'
 #       '"Привет, как твои дела? Как настроение?"\n')
 # txt = 'Привет, как твои дела? Как настроение?'
@@ -199,39 +201,57 @@
 # happiness_exam(num_use)
 
 ## Задача № 18
+#
+# txt = input("Введите текст:")
+#
+#
+# def double_count(txt_use):
+#     """Функция ищет повторяющиеся элементы в списке
+#     и выводить колиество повторений(В данной функции
+#     не используется метод .count())"""
+#     count = []  # Список, который хранит в себе элемент, дубль которого мы ищем
+#     punctuation = ['.', ',', '!', '?', '(', ')', ':', ';', '"', '/', '-']  # Список знаков препинания, для удаления
+#     double_dict = {}
+#     value_num = 1 # Количество повторяющихся элементов
+#     value_r = 1 # Начало диапазона для поиска дублей
+#     for i in punctuation:
+#         txt_use = txt_use.replace(i, "") # Удаляем знаки препинания
+#     txt_use = txt_use.lower().split() # Приводим текст к одному регистру, переводим в список
+#     # ----------- Увеличиваем диапазон если он равен i(если не увеличить, то в список будут попадать значения, которые
+#     # не повторяются)
+#     for i in range(len(txt_use)-1):
+#         if value_r == i:
+#             value_r += 1
+#     # ------------------------------------------------
+#         if txt_use[i] in double_dict: # Проверяем есть ли в списке уже данный ключ, если нет, то не берем его
+#             continue
+#         else:
+#             count.append(txt_use[i]) # добавляем элемент который будем проверять на дубль
+#         for k in range(value_r, len(txt_use)):
+#             if txt_use[k] == count[0]: # Поиск дубля
+#                 value_num += 1
+#                 double_dict[count[0]] = value_num # Обновляем счетчик
+#         value_num = 1
+#         count = [] # Обнуляем, что бы в списке был только тот элемент, который проверяем
+#     print(double_dict)
+#
+#
+# double_count(txt)
 
-txt = input("Введите текст:")
+## Задача № 19
 
+import datetime
 
-def double_count(txt_use):
-    """Функция ищет повторяющиеся элементы в списке
-    и выводить колиество повторений(В данной функции
-    не используется метод .count())"""
-    count = []  # Список, который хранит в себе элемент, дубль которого мы ищем
-    punctuation = ['.', ',', '!', '?', '(', ')', ':', ';', '"', '/', '-']  # Список знаков препинания, для удаления
-    double_dict = {}
-    value_num = 1 # Количество повторяющихся элементов
-    value_r = 1 # Начало диапазона для поиска дублей
-    for i in punctuation:
-        txt_use = txt_use.replace(i, "") # Удаляем знаки препинания
-    txt_use = txt_use.lower().split() # Приводим текст к одному регистру, переводим в список
-    # ----------- Увеличиваем диапазон если он равен i(если не увеличить, то в список будут попадать значения, которые
-    # не повторяются)
-    for i in range(len(txt_use)-1):
-        if value_r == i:
-            value_r += 1
-    # ------------------------------------------------
-        if txt_use[i] in double_dict: # Проверяем есть ли в списке уже данный ключ, если нет, то не берем его
-            continue
-        else:
-            count.append(txt_use[i]) # добавляем элемент который будем проверять на дубль
-        for k in range(value_r, len(txt_use)):
-            if txt_use[k] == count[0]: # Поиск дубля
-                value_num += 1
-                double_dict[count[0]] = value_num # Обновляем счетчик
-        value_num = 1
-        count = [] # Обнуляем, что бы в списке был только тот элемент, который проверяем
-    print(double_dict)
+date_use = '13.12.12'
+value = 7
+date_use_lst = date_use.split('.')
+new_date = datetime.datetime.strptime(date_use, "%d.%m.%y")
+if value > 0:
+    new_month = new_date.month + value
+    new_date = new_date.replace(month=new_month)
+else:
+    new_month = new_date.month - value
+    new_date = new_date.replace(month=new_month)
+new_date = datetime.date.strftime(new_date, "%d.%m.%y")
+print(new_date)
 
-
-double_count(txt)
