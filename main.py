@@ -240,18 +240,41 @@
 
 ## Задача № 19
 
-import datetime
+#
+# def change_month(date, month):
+#
+#     """Функция прибавляет/вычитает переданное количество месяцев из перезанной даты"""
+#
+#     # Импортим модули
+#     import datetime
+#     from datetime import timedelta
+#     # Конвертим месяцы в дни
+#     month_arithmetic = month * 30
+#     value = month_arithmetic
+#     # Конвертим  строку в дату
+#     new_date = datetime.datetime.strptime(date, "%d.%m.%y")
+#     # С помощью метода timedelta прибавляем количество дней к дате
+#     new_month = new_date + datetime.timedelta(days=+value)
+#     # Т.к в месяце может быть более и менее 30 дней, то создаем условие
+#     if new_month.day < new_date.day:
+#         # Находим разницу между первоначальной датой и новой
+#         range_date = new_date.day - new_month.day
+#         # Прибавляем разницу к новой дате
+#         new_month = new_month + datetime.timedelta(days=range_date)
+#         # Приводим дату к нужному нам формату с шпомощью метода .strftime
+#         new_month = datetime.date.strftime(new_month, "%d.%m.%y")
+#         print(new_month)
+#     elif new_month.day > new_date.day:
+#         range_date = new_month.day - new_date.day
+#         new_month = new_month - datetime.timedelta(days=range_date)
+#         new_month = datetime.date.strftime(new_month, "%d.%m.%y")
+#         print(new_month)
+#     else:
+#         new_month = datetime.date.strftime(new_month, "%d.%m.%y")
+#         print(new_month)
+#
+#
+# change_month('13.12.12', 1)
 
-date_use = '13.12.12'
-value = 7
-date_use_lst = date_use.split('.')
-new_date = datetime.datetime.strptime(date_use, "%d.%m.%y")
-if value > 0:
-    new_month = new_date.month + value
-    new_date = new_date.replace(month=new_month)
-else:
-    new_month = new_date.month - value
-    new_date = new_date.replace(month=new_month)
-new_date = datetime.date.strftime(new_date, "%d.%m.%y")
-print(new_date)
+
 
