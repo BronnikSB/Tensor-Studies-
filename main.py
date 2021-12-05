@@ -276,5 +276,63 @@
 #
 # change_month('13.12.12', 1)
 
+## Task 20
+
+def func_time(func):
+    # импортим модуль time
+    import time
+
+    # Создаём функцию "Обертку, которая принимает аргументы"
+
+    def wrapper(*arg, **kwargs):
+        # С помощью метода .time возвращаем число секунд, прошедших с начала эпохи
+        start = time.time()
+        func(*arg, **kwargs)
+        end = time.time()
+        print(f'Время выполнения функции {func}: {end - start}')
+    return wrapper
+
+
+@func_time
+def change_month(date, month):
+
+    """Функция прибавляет/вычитает переданное количество месяцев из перезанной даты"""
+
+    # Импортим модули
+    import datetime
+    from datetime import timedelta
+
+    # С помощью метода sleep() откладываем исполнение текущего потока на данное количество секунд
+    # чтобы проверить -работу декоратора.
+    import time
+    time.sleep(2)
+
+    # Конвертим месяцы в дни
+    month_arithmetic = month * 30
+    value = month_arithmetic
+    # Конвертим  строку в дату
+    new_date = datetime.datetime.strptime(date, "%d.%m.%y")
+    # С помощью метода timedelta прибавляем количество дней к дате
+    new_month = new_date + datetime.timedelta(days=+value)
+    # Т.к в месяце может быть более и менее 30 дней, то создаем условие
+    if new_month.day < new_date.day:
+        # Находим разницу между первоначальной датой и новой
+        range_date = new_date.day - new_month.day
+        # Прибавляем разницу к новой дате
+        new_month = new_month + datetime.timedelta(days=range_date)
+        # Приводим дату к нужному нам формату с шпомощью метода .strftime
+        new_month = datetime.date.strftime(new_month, "%d.%m.%y")
+        print(new_month)
+    elif new_month.day > new_date.day:
+        range_date = new_month.day - new_date.day
+        new_month = new_month - datetime.timedelta(days=range_date)
+        new_month = datetime.date.strftime(new_month, "%d.%m.%y")
+        print(new_month)
+    else:
+        new_month = datetime.date.strftime(new_month, "%d.%m.%y")
+        print(new_month)
+
+
+change_month('01.02.13', 1)
 
 
