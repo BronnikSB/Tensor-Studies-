@@ -66,14 +66,32 @@
 #
 # phone_number_examination(phone_number)
 
-# Задача № 7
+# Количество строк в строке
+# txt_num = input('Введите текст: ')
+# txt_list = txt_num.split()
+# counter = 0
+# for i in txt_list:
+#     counter += 1
+# print(counter)
 
+# Имя файла без расширения
+
+# name_str = "C:\Development\inside\\test-project_management\inside\myfile.txt"
+# name_lst = name_str.split('\\')
+# name_file = name_lst[-1]
+# name_no_extension = name_file.split('.')
+# print(name_no_extension[0])
+
+# Задача № 7
+# Четные значения
 # num = 0
 #
 # while num != 123:
 #     if num % 2 == 0:
 #         print(num)
 #     num += 1
+#
+# Значения кратные трем
 
 # num = 123
 #
@@ -83,12 +101,16 @@
 
 # Задача № 8
 
+# Треугольник из *
+
 # number_str = 5
 # for i in range(1, number_str + 1):
 #     symbol = "* " * i
 #     print(i, symbol)
 
 # Задача № 9
+
+## Двойной факториал
 
 # num_user = int(input("Введите целое число:"))
 # num_user_new = num_user - 2
@@ -99,6 +121,8 @@
 
 # Задача №10
 
+# Список чисел меньше текущего и кратные 5
+
 # num_use = int(input("Введите число от 1 до 100:"))
 # lst = []
 # for i in range(num_use):
@@ -107,8 +131,9 @@
 #     elif i % 5 == 0:
 #         lst.append(i)
 # print(lst)
-# # Задача № 11
-#
+
+# Задача № 11 должна выполняться с задачей № 10
+
 # num_max = max(lst)
 # num_min = min(lst)
 # index_max = lst.index(num_max)
@@ -278,61 +303,65 @@
 
 ## Task 20
 
-def func_time(func):
-    # импортим модуль time
-    import time
+# def func_time(func):
+#     # импортим модуль time
+#     import time
+#
+#     # Создаём функцию "Обертку, которая принимает аргументы"
+#
+#     def wrapper(*arg, **kwargs):
+#         # С помощью метода .time возвращаем число секунд, прошедших с начала эпохи
+#         start = time.time()
+#         func(*arg, **kwargs)
+#         end = time.time()
+#         print(f'Время выполнения функции {func}: {end - start}')
+#     return wrapper
+#
+#
+# @func_time
+# def change_month(date, month):
+#
+#     """Функция прибавляет/вычитает переданное количество месяцев из перезанной даты"""
+#
+#     # Импортим модули
+#     import datetime
+#     from datetime import timedelta
+#
+#     # С помощью метода sleep() откладываем исполнение текущего потока на данное количество секунд
+#     # чтобы проверить -работу декоратора.
+#     import time
+#     time.sleep(2)
+#
+#     # Конвертим месяцы в дни
+#     month_arithmetic = month * 30
+#     value = month_arithmetic
+#     # Конвертим  строку в дату
+#     new_date = datetime.datetime.strptime(date, "%d.%m.%y")
+#     # С помощью метода timedelta прибавляем количество дней к дате
+#     new_month = new_date + datetime.timedelta(days=+value)
+#     # Т.к в месяце может быть более и менее 30 дней, то создаем условие
+#     if new_month.day < new_date.day:
+#         # Находим разницу между первоначальной датой и новой
+#         range_date = new_date.day - new_month.day
+#         # Прибавляем разницу к новой дате
+#         new_month = new_month + datetime.timedelta(days=range_date)
+#         # Приводим дату к нужному нам формату с шпомощью метода .strftime
+#         new_month = datetime.date.strftime(new_month, "%d.%m.%y")
+#         print(new_month)
+#     elif new_month.day > new_date.day:
+#         range_date = new_month.day - new_date.day
+#         new_month = new_month - datetime.timedelta(days=range_date)
+#         new_month = datetime.date.strftime(new_month, "%d.%m.%y")
+#         print(new_month)
+#     else:
+#         new_month = datetime.date.strftime(new_month, "%d.%m.%y")
+#         print(new_month)
+#
+#
+# change_month('01.02.13', 1)
 
-    # Создаём функцию "Обертку, которая принимает аргументы"
-
-    def wrapper(*arg, **kwargs):
-        # С помощью метода .time возвращаем число секунд, прошедших с начала эпохи
-        start = time.time()
-        func(*arg, **kwargs)
-        end = time.time()
-        print(f'Время выполнения функции {func}: {end - start}')
-    return wrapper
+## Task 21
 
 
-@func_time
-def change_month(date, month):
-
-    """Функция прибавляет/вычитает переданное количество месяцев из перезанной даты"""
-
-    # Импортим модули
-    import datetime
-    from datetime import timedelta
-
-    # С помощью метода sleep() откладываем исполнение текущего потока на данное количество секунд
-    # чтобы проверить -работу декоратора.
-    import time
-    time.sleep(2)
-
-    # Конвертим месяцы в дни
-    month_arithmetic = month * 30
-    value = month_arithmetic
-    # Конвертим  строку в дату
-    new_date = datetime.datetime.strptime(date, "%d.%m.%y")
-    # С помощью метода timedelta прибавляем количество дней к дате
-    new_month = new_date + datetime.timedelta(days=+value)
-    # Т.к в месяце может быть более и менее 30 дней, то создаем условие
-    if new_month.day < new_date.day:
-        # Находим разницу между первоначальной датой и новой
-        range_date = new_date.day - new_month.day
-        # Прибавляем разницу к новой дате
-        new_month = new_month + datetime.timedelta(days=range_date)
-        # Приводим дату к нужному нам формату с шпомощью метода .strftime
-        new_month = datetime.date.strftime(new_month, "%d.%m.%y")
-        print(new_month)
-    elif new_month.day > new_date.day:
-        range_date = new_month.day - new_date.day
-        new_month = new_month - datetime.timedelta(days=range_date)
-        new_month = datetime.date.strftime(new_month, "%d.%m.%y")
-        print(new_month)
-    else:
-        new_month = datetime.date.strftime(new_month, "%d.%m.%y")
-        print(new_month)
-
-
-change_month('01.02.13', 1)
 
 
