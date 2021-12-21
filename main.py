@@ -362,6 +362,41 @@
 
 ## Task 21
 
+class Name:
+    def __init__(self, name, patronymic, surname):
+        self.name = name
+        self.patronymic = patronymic
+        self.surname = surname
+
+    def brief_name(self):
+        return f'{self.surname} {self.name}'
+
+    def initials(self):
+        return f'{self.surname} {self.name[0]}.{self.patronymic[0]}.'
+
+    def str_format(self, format_name):
+        surname = ''
+        name = ''
+        patronymic = ''
+        for i in format_name.split():
+            if i == '%Ф':
+                surname = self.surname
+            elif i == '%ф':
+                surname = self.surname[0]
+            elif i == '%И':
+                name = self.name
+            elif i == '%и':
+                name = self.name[0]+'.'
+            elif i == '%О':
+                patronymic = self.patronymic
+            elif i == '%о':
+                patronymic = self.patronymic[0]+'.'
+        return f'{surname} {name} {patronymic}'
 
 
+n = Name('Иван', 'Иванович', 'Иванов')
+
+print(n.brief_name())
+print(n.initials())
+print(n.str_format('%Ф %и %о'))
 
