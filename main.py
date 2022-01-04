@@ -209,21 +209,17 @@
 #         num_div = 0
 
 # Задача № 17
-#
-# num_use = 123123
-# print(type(num_use))
-#
-#
-# def happiness_exam(num):
-#     happiness_num = []
-#     for i in list(str(num)):
-#         happiness_num.append(int(i))
-#     if happiness_num[0:3] == happiness_num[3:6]:
-#         return print(f'{num} является счасливым числом')
-#     return print(f'{num} является не счастливым числом')
-#
-#
-# happiness_exam(num_use)
+
+num = 1
+counter = 0
+while num != 1000000:
+    num_full = str(num).zfill(6)
+    num += 1
+    num_left = list(map(int, num_full[3:]))
+    num_right = list(map(int, num_full[:3]))
+    if sum(num_left) == sum(num_right):
+        counter += 1
+print(f'Количество счастливых чисел от 000000 до 999999: {counter}')
 
 ## Задача № 18
 #
@@ -362,41 +358,43 @@
 
 ## Task 21
 
-class Name:
-    def __init__(self, name, patronymic, surname):
-        self.name = name
-        self.patronymic = patronymic
-        self.surname = surname
+# class Name:
+#     def __init__(self, name, patronymic, surname):
+#         self.name = name
+#         self.patronymic = patronymic
+#         self.surname = surname
+#
+#     def brief_name(self):
+#         return f'{self.surname} {self.name}'
+#
+#     def initials(self):
+#         return f'{self.surname} {self.name[0]}.{self.patronymic[0]}.'
+#
+#     def str_format(self, format_name):
+#         surname = ''
+#         name = ''
+#         patronymic = ''
+#         for i in format_name.split():
+#             if i == '%Ф':
+#                 surname = self.surname
+#             elif i == '%ф':
+#                 surname = self.surname[0]
+#             elif i == '%И':
+#                 name = self.name
+#             elif i == '%и':
+#                 name = self.name[0]+'.'
+#             elif i == '%О':
+#                 patronymic = self.patronymic
+#             elif i == '%о':
+#                 patronymic = self.patronymic[0]+'.'
+#         return f'{surname} {name} {patronymic}'
+#
+#
+# n = Name('Иван', 'Иванович', 'Иванов')
+#
+# print(n.brief_name())
+# print(n.initials())
+# print(n.str_format('%Ф %и %о'))
 
-    def brief_name(self):
-        return f'{self.surname} {self.name}'
 
-    def initials(self):
-        return f'{self.surname} {self.name[0]}.{self.patronymic[0]}.'
-
-    def str_format(self, format_name):
-        surname = ''
-        name = ''
-        patronymic = ''
-        for i in format_name.split():
-            if i == '%Ф':
-                surname = self.surname
-            elif i == '%ф':
-                surname = self.surname[0]
-            elif i == '%И':
-                name = self.name
-            elif i == '%и':
-                name = self.name[0]+'.'
-            elif i == '%О':
-                patronymic = self.patronymic
-            elif i == '%о':
-                patronymic = self.patronymic[0]+'.'
-        return f'{surname} {name} {patronymic}'
-
-
-n = Name('Иван', 'Иванович', 'Иванов')
-
-print(n.brief_name())
-print(n.initials())
-print(n.str_format('%Ф %и %о'))
 
